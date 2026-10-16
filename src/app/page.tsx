@@ -1,131 +1,41 @@
 import Link from "next/link";
 import HeroSlider from "@/components/HeroSlider";
 import Photo from "@/components/Photo";
-import { heroSlides, papers, purposes, workshops } from "@/content/site";
-
+import { purposes } from "@/content/site";
+const stories = [
+  {slot:"hero-sculpture", eyebrow:"The material"},
+  {slot:"hero-1", eyebrow:"The hands"},
+  {slot:"hero-drying", eyebrow:"The studio"},
+];
 export default function Home() {
   return (
     <>
-      <HeroSlider
-        slides={heroSlides.map((s, k) => ({
-          ...s,
-          photo: <Photo slot={s.slot} alt="" eager={k === 0} />,
-        }))}
-      />
-
-      {/* intro */}
-      <section className="section intro">
-        <div className="wrap" data-reveal>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img className="mark" src="/brand/logo-mark.svg" alt="" width={54} height={57} />
-          <p className="title-lg">
-            Tree-free, chemical-free, <span className="gold">archival</span> paper, handmade at Kanha from textile rags and the
-            fibres of the forest floor.
-          </p>
-          <Link href="/about" className="link">Our story</Link>
-          <ul className="facts">
-            <li>100% tree-free</li>
-            <li>Non-toxic</li>
-            <li>Archival quality</li>
-            <li>Made by women</li>
-          </ul>
-        </div>
+      <HeroSlider slides={stories.map((s,k)=>({...s,photo:<Photo slot={s.slot} alt="" eager={k===0} sizes="100vw" />}))} />
+      <div className="craft-strip wrap"><span>Made by hand</span><span>Tree-free fibres</span><span>Rooted in Kanha</span><span>Openly shared craft</span></div>
+      <section className="section"><div className="wrap editorial-intro">
+        <div data-reveal><span className="label">The Aditi way</span><h2 className="title-lg">A different beginning.<br />A distinctive sheet.</h2></div>
+        <div data-reveal><p className="lead">Cotton rags. Fallen leaves. Fibres with another story to tell.</p><p>At Aditi Paperie, we turn overlooked materials into paper with a character all its own. Made slowly, sheet by sheet, at Kanha Shanti Vanam.</p><Link className="link" href="/paper">Meet the material ↗</Link></div>
+      </div></section>
+      <section className="section collection-section"><div className="wrap">
+        <div className="section-heading" data-reveal><div><span className="label">Paper, with possibilities</span><h2 className="title-lg">For words, spaces<br />and meaningful occasions.</h2></div><Link className="link" href="/shop">View the collection ↗</Link></div>
+        <div className="row-3 purpose-grid">{purposes.map((p,k)=><Link href={p.href} className="purpose" key={p.slot} data-reveal><Photo slot={p.slot} alt={p.text} sizes="(max-width: 900px) 100vw, 33vw" /><div className="purpose-heading"><h3>{p.title}</h3><span aria-hidden="true">↗</span></div><p>{p.text}</p><span className="collection-number">0{k+1}</span></Link>)}</div>
+      </div></section>
+      <section className="section tint"><div className="wrap split process-feature">
+        <Photo slot="process-detail" alt="Hands lifting a wooden mould with a freshly formed sheet of cotton paper" sizes="(max-width: 900px) 100vw, 55vw" />
+        <div className="split-text" data-reveal><span className="label">Fibre. Water. A pair of hands.</span><h2 className="title-lg">A little irregular.<br />Entirely its own.</h2><p>Look closer. The soft edge, the visible fibres, the slight change in texture. These are the traces of a sheet formed by hand.</p><p>We work with textile rags and plant fibres, exploring what each material can become.</p><Link href="/paper" className="link">How our paper takes shape ↗</Link></div>
+      </div></section>
+      <section className="banner makers-banner">
+        <Photo slot="women-banner" alt="Three women artisans examining handmade sheets together" />
+        <div className="wrap" data-reveal><span className="label">Craft is only the beginning</span><h2>When a craft grows,<br />people grow with it.</h2><p>Aditi Paperie began with a belief in shared opportunity: creative work, a livelihood, and a space for women and local artists to make their mark.</p><Link href="/about#women" className="btn light">The people behind the purpose</Link></div>
       </section>
-
-      {/* papers */}
-      <section className="section" style={{ paddingTop: 0 }}>
-        <div className="wrap">
-          <div className="head" data-reveal>
-            <h2 className="title">Explore Our Papers</h2>
-            <p className="lead">More than eleven papers, each pulled by hand. No two sheets are alike.</p>
-          </div>
-          <div className="row-5">
-            {papers.map((p, k) => (
-              <Link href="/paper" className="tile" key={p.slot} data-reveal data-delay={k % 5}>
-                <Photo slot={p.slot} alt={p.name} sizes="(max-width: 600px) 50vw, 20vw" />
-                <h3>{p.name}</h3>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* purpose */}
-      <section className="section tint">
-        <div className="wrap">
-          <div className="head" data-reveal>
-            <h2 className="title">Shop by Purpose</h2>
-          </div>
-          <div className="row-3">
-            {purposes.map((p, k) => (
-              <Link href={p.href} className="purpose" key={p.slot} data-reveal data-delay={k + 1}>
-                <Photo slot={p.slot} alt={p.title} sizes="(max-width: 900px) 100vw, 33vw" />
-                <h3>{p.title}</h3>
-                <p>{p.text}</p>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* women banner */}
-      <section className="banner">
-        <Photo slot="women-banner" alt="An artisan at work in the studio" />
-        <div className="wrap" data-reveal>
-          <span className="label">A social enterprise</span>
-          <h2>Made by the women of Kanha</h2>
-          <p>Every sheet supports a livelihood for women from the villages around Kanha: an income, an identity and a craft to be proud of.</p>
-          <Link href="/about#women" className="btn light">Meet the makers</Link>
-        </div>
-      </section>
-
-      {/* who we are */}
-      <section className="section">
-        <div className="wrap split">
-          <div data-reveal>
-            <Photo slot="about-vat" alt="A sheet of paper being lifted from the vat" sizes="(max-width: 900px) 100vw, 50vw" />
-          </div>
-          <div className="split-text c" data-reveal data-delay={1}>
-            <span className="label">Who we are</span>
-            <h2 className="title">An ancient craft, revived</h2>
-            <p className="muted">
-              For a thousand years paper was made by hand, from rags and plants, never trees. Inspired by Daaji&apos;s vision that
-              every person should learn to make their own paper, Aditi Paperie began at Kanha Shanti Vanam in 2026 to bring that
-              craft back.
-            </p>
-            <Link href="/about" className="btn gold">Learn more</Link>
-          </div>
-        </div>
-      </section>
-
-      {/* workshops */}
-      <section className="section tint">
-        <div className="wrap">
-          <div className="head" data-reveal>
-            <span className="label">Workshops &amp; academy</span>
-            <h2 className="title">Make Your Own Paper</h2>
-            <p className="lead">Most papermakers guard their secrets. We teach ours.</p>
-          </div>
-          <div className="row-3">
-            {workshops.map((w, k) => (
-              <Link href="/workshops" className="card" key={w.slot} data-reveal data-delay={k + 1}>
-                <Photo slot={w.slot} alt={w.title} sizes="(max-width: 900px) 100vw, 33vw" />
-                <h3>{w.title}</h3>
-                <p>{w.text}</p>
-                <span className="meta">{w.meta}</span>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* quote */}
-      <section className="section quote">
-        <div className="wrap" data-reveal>
-          <blockquote>“Every sheet is different. Only when you touch it do you feel it. It's like pottery, like a painting you can never paint twice.”</blockquote>
-          <cite>Aditi, founder</cite>
-        </div>
-      </section>
+      <section className="section"><div className="wrap split rev learning-feature">
+        <Photo slot="workshops-hero" alt="An instructor sharing the papermaking process with adult learners" sizes="(max-width: 900px) 100vw, 55vw" />
+        <div className="split-text" data-reveal><span className="label">Come curious. Leave inspired.</span><h2 className="title-lg">The best way to know<br />paper is to make it.</h2><p>Meet the material, discover the process, and explore making your first sheet. Our vision is a studio where the craft is shared openly.</p><Link href="/workshops" className="btn">Explore workshops</Link><Link href="/workshops#academy" className="text-link">Discover the academy vision ↗</Link></div>
+      </div></section>
+      <section className="section tint business-section"><div className="wrap business-inner">
+        <div data-reveal><span className="label">For brands, spaces & celebrations</span><h2 className="title-lg">Your idea.<br />Our paper.</h2></div><div data-reveal><p className="lead">A thoughtful gift. A wedding invitation. An object that makes a room feel different.</p><p>Explore custom paper, stationery and collaborations with artists for hospitality and business gifting.</p><Link href="/contact?about=Custom%20business%20project" className="btn line">Tell us about your project</Link></div>
+      </div></section>
+      <section className="section quote"><div className="wrap" data-reveal><span className="label">Aditi, founder</span><blockquote>“The only vision I have is, whoever gets associated with me, should grow.”</blockquote><Link href="/about" className="link">Read our story ↗</Link></div></section>
     </>
   );
 }

@@ -1,0 +1,26 @@
+[
+  {
+    "contentWidth": 305,
+    "firstProductTop": 757.6625366210938,
+    "labels": false,
+    "width": 320
+  },
+  {
+    "contentWidth": 375,
+    "firstProductTop": 676.3250122070312,
+    "labels": false,
+    "width": 390
+  },
+  {
+    "contentWidth": 753,
+    "firstProductTop": 711.9000244140625,
+    "labels": false,
+    "width": 768
+  },
+  {
+    "contentWidth": 1425,
+    "firstProductTop": 723.5250244140625,
+    "labels": false,
+    "width": 1440
+  }
+]

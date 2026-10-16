@@ -11,7 +11,7 @@ const jost = Jost({ subsets: ["latin"], weight: ["300", "400", "500"], variable:
 export const metadata: Metadata = {
   title: { default: `${site.name} | Tree-free handmade paper from Kanha`, template: `%s · ${site.name}` },
   description:
-    "Aditi Paperie makes tree-free, chemical-free, archival handmade paper at Kanha Shanti Vanam: paper, diaries, décor, workshops and a papermaking academy.",
+    "Discover tree-free handmade paper, thoughtful objects and shared learning at Aditi Paperie, a paper studio at Kanha Shanti Vanam near Hyderabad.",
   icons: { icon: "/brand/logo-mark.svg" },
 };
 

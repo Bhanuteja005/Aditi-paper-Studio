@@ -4,88 +4,111 @@ import PageHead from "@/components/PageHead";
 import Photo from "@/components/Photo";
 
 export const metadata: Metadata = {
-  title: "About Us",
-  description: "Aditi Paperie is a tree-free handmade paper studio and social enterprise at Kanha Shanti Vanam, founded in 2026.",
+  title: "Our Studio",
+  description: "Meet the vision behind Aditi Paperie: a handmade-paper studio at Kanha, bringing together material exploration, creative livelihoods and learning.",
 };
 
-const promises = [
-  { t: "For the planet", d: "No trees cut, no toxins released, nothing that can't return to the earth or come back to us to be made again." },
-  { t: "For the women", d: "Livelihood, identity and creative work for women from the villages around Kanha." },
-  { t: "For the craft", d: "An academy that teaches openly, so papermaking reaches every city and every village." },
+const principles = [
+  { title: "Know the material", text: "Work with textile offcuts and plant fibres. Observe, experiment and learn what each can become." },
+  { title: "Value the maker", text: "Build opportunities for women around Kanha to develop skills and be recognised for their creative work." },
+  { title: "Teach what we learn", text: "Share the practice through studio experiences and the planned academy, so others can take it forward." },
 ];
 
 export default function AboutPage() {
   return (
     <>
       <PageHead
-        label="About us"
-        title="A paper studio in a place of stillness"
-        lead="Aditi Paperie lives at Kanha Shanti Vanam. It began in March 2026 with a simple vision: that every person, and every child especially, should learn to make their own paper."
+        label="Our studio"
+        title="A studio built around shared growth."
+        lead="Handmade paper at Kanha Shanti Vanam, with a purpose beyond the sheet: skilled work for women, space for artists and a craft more people can learn."
         slot="about-hero"
-        alt="An artisan at work"
+        alt="Handmade sheets hanging to dry in a studio, with a woman working in the distance"
       />
 
       <section className="section">
         <div className="wrap split">
           <div data-reveal>
-            <Photo slot="about-founder" alt="A hand-bound diary, the first gift that started it all" sizes="(max-width: 900px) 100vw, 50vw" />
+            <Photo slot="about-founder" alt="An ivory hand-bound journal with an ochre cloth spine on linen" sizes="(max-width: 900px) 100vw, 50vw" />
           </div>
           <div className="split-text" data-reveal data-delay={1}>
-            <span className="label">The founder</span>
-            <h2 className="title">Aditi&apos;s story</h2>
-            <p className="muted">
-              Aditi is a computer science engineer who never imagined working with paper. A lifelong Heartfulness practitioner and
-              trainer, she was encouraged by Daaji, who has carried the vision of papermaking for everyone for more than forty
-              years, to start the studio single-handedly.
+            <span className="label">Aditi&apos;s story</span>
+            <h2 className="title">From engineering<br />to papermaking.</h2>
+            <p>
+              Aditi trained as a computer science engineer. Papermaking was an unexpected direction, encouraged by
+              Daaji&apos;s vision that more people should have the opportunity to learn the craft.
             </p>
-            <p className="muted">
-              She first learnt the craft in Auroville, working alongside papermakers at the vat. Her first gift to Daaji was a small
-              handmade diary. Today the studio makes more than eleven kinds of paper, with more in development.
+            <p>
+              She began learning alongside papermakers in Auroville. At Kanha, she has continued that exploration with
+              textile and plant fibres, developing papers and finding the right use for each.
             </p>
-            <p style={{ fontWeight: 400 }}>“My only vision is that whoever gets associated with me should grow.”</p>
+            <p>
+              A Heartfulness practitioner and trainer, Aditi sees the studio as a place where people can develop alongside
+              the work. Her ambitions connect making and selling with teaching, livelihoods and opportunities for artists.
+            </p>
           </div>
         </div>
       </section>
 
-      <section className="banner" id="women">
-        <Photo slot="about-women" alt="A woman artisan at work" />
+      <section className="section tint quote">
         <div className="wrap" data-reveal>
-          <span className="label">A social enterprise</span>
-          <h2>Identity. Creativity. A future.</h2>
-          <p>
-            Aditi Paperie LLP was formed to bring livelihood to women from the villages around Kanha. Women have always known how to
-            take what&apos;s left over and turn it into something beautiful. We gave that gift a studio.
-          </p>
+          <blockquote>“The only vision I have is, whoever gets associated with me, should grow.”</blockquote>
+          <cite>Aditi · Founder</cite>
         </div>
       </section>
 
-      <section className="section">
+      <section className="section" id="women">
         <div className="wrap split rev">
           <div data-reveal>
-            <Photo slot="about-artists" alt="Art and décor made on handmade paper" sizes="(max-width: 900px) 100vw, 50vw" />
+            <Photo slot="about-women" alt="Women working together on handmade papermaking" sizes="(max-width: 900px) 100vw, 50vw" />
           </div>
           <div className="split-text" data-reveal data-delay={1}>
-            <span className="label">A platform for artists</span>
-            <h2 className="title">Art that gets its due</h2>
-            <p className="muted">
-              Local artists rarely get the visibility their work deserves. We work with them to create art, décor and wall pieces
-              on handmade paper for homes, hotels and hospitality spaces that want something with a soul.
+            <span className="label">People at the centre</span>
+            <h2 className="title">Skilled work.<br />An identity of one&apos;s own.</h2>
+            <p>
+              The studio was established with livelihoods for women from the villages around Kanha in mind.
+              Learning to make paper offers a practical skill and a space for creative work.
             </p>
-            <Link href="/contact" className="link">Collaborate with us</Link>
+            <p>
+              For Aditi, the purpose includes the confidence and identity that come with that work.
+              As the studio grows, she wants those opportunities to grow with it.
+            </p>
+            <Link href="/workshops" className="link">Discover learning at the studio</Link>
           </div>
         </div>
       </section>
 
       <section className="section tint">
+        <div className="wrap split">
+          <div data-reveal>
+            <Photo slot="about-artists" alt="A sculptural paper pendant lamp suspended in an interior" sizes="(max-width: 900px) 100vw, 50vw" />
+          </div>
+          <div className="split-text" data-reveal data-delay={1}>
+            <span className="label">Artists, designers &amp; spaces</span>
+            <h2 className="title">Paper in the hands of artists.</h2>
+            <p>
+              Aditi wants to create a platform for artists working with paper, connecting their practice with
+              people seeking artwork and objects for homes, hotels and other spaces.
+            </p>
+            <p>
+              Artists can share a portfolio or proposal. Designers and hospitality teams can bring a brief.
+              The conversation begins with the material and the work you want to make.
+            </p>
+            <Link href="/contact?about=Artist%20or%20design%20collaboration" className="btn">Discuss a collaboration</Link>
+          </div>
+        </div>
+      </section>
+
+      <section className="section">
         <div className="wrap">
           <div className="head" data-reveal>
-            <h2 className="title">What We Stand For</h2>
+            <span className="label">What guides us</span>
+            <h2 className="title">The principles behind the practice.</h2>
           </div>
           <div className="cols-3" data-reveal>
-            {promises.map((p) => (
-              <div key={p.t}>
-                <h3>{p.t}</h3>
-                <p>{p.d}</p>
+            {principles.map((principle) => (
+              <div key={principle.title}>
+                <h3>{principle.title}</h3>
+                <p>{principle.text}</p>
               </div>
             ))}
           </div>

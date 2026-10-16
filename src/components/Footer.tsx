@@ -9,7 +9,7 @@ export default function Footer() {
           <div className="foot-logo">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src="/brand/logo-full.svg" alt={site.name} width={170} height={64} />
-            <p>Tree-free, chemical-free, archival paper, handmade by the women of Kanha.</p>
+            <p>Tree-free paper, new possibilities. A handmade paper studio at Kanha, growing through craft and shared learning.</p>
           </div>
           <div>
             <h4>Explore</h4>
@@ -20,23 +20,20 @@ export default function Footer() {
           <div>
             <h4>Visit</h4>
             <p>{site.location}</p>
-            <p>{site.hours}</p>
-            <a href={`mailto:${site.email}`}>{site.email}</a>
-            <a href={`tel:${site.phone.replace(/\s/g, "")}`}>{site.phone}</a>
+            <p>{site.hours || "Visit details to be confirmed with the studio."}</p>
+            {site.email && <a href={`mailto:${site.email}`}>{site.email}</a>}
+            {site.phone && <a href={`tel:${site.phone.replace(/[^+\d]/g, "")}`}>{site.phone}</a>}
+            <Link href="/contact">Plan an enquiry</Link>
           </div>
           <div>
-            <h4>Newsletter</h4>
-            <p>New papers and workshop dates, a few times a year.</p>
-            {/* TODO connect to the client's newsletter tool */}
-            <form className="news" action="#" aria-label="Newsletter">
-              <input type="email" placeholder="Your email" aria-label="Email" required />
-              <button type="submit">Join</button>
-            </form>
+            <h4>Learn the craft</h4>
+            <p>From a first sheet to a deeper practice. Explore the studio&apos;s vision for shared learning.</p>
+            <Link href="/workshops">Explore workshops →</Link>
           </div>
         </div>
         <div className="foot-base">
           <span>© {site.legal}</span>
-          <a href={site.instagram} target="_blank" rel="noreferrer">Instagram</a>
+          {site.instagram ? <a href={site.instagram} target="_blank" rel="noopener noreferrer">Instagram <span className="sr-only">(opens a new tab)</span></a> : <span>Made with care. Shared with purpose.</span>}
         </div>
       </div>
     </footer>

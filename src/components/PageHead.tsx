@@ -1,10 +1,10 @@
 import Photo from "./Photo";
 
 /** Centred page title with an optional wide banner photo underneath. */
-export default function PageHead({ label, title, lead, slot, alt }: { label: string; title: string; lead?: string; slot?: string; alt?: string }) {
+export default function PageHead({ label, title, lead, slot, alt, compact = false }: { label: string; title: string; lead?: string; slot?: string; alt?: string; compact?: boolean }) {
   return (
     <>
-      <section className="page-head">
+      <section className={`page-head${compact ? " compact" : ""}`}>
         <div className="wrap" data-reveal>
           <span className="label">{label}</span>
           <h1>{title}</h1>

@@ -1,0 +1,182 @@
+[
+  {
+    "route": "/",
+    "contentWidth": 375,
+    "h1": 1,
+    "heading": "A new life.In every fibre.",
+    "mailtoLinks": 0,
+    "unwantedLabels": false,
+    "visibleBrokenImages": [],
+    "width": 390
+  },
+  {
+    "route": "/shop",
+    "contentWidth": 375,
+    "h1": 1,
+    "heading": "Paper for the desk, the home and the occasion.",
+    "mailtoLinks": 0,
+    "unwantedLabels": false,
+    "visibleBrokenImages": [],
+    "width": 390
+  },
+  {
+    "route": "/paper",
+    "contentWidth": 375,
+    "h1": 1,
+    "heading": "The character is in the fibre.",
+    "mailtoLinks": 0,
+    "unwantedLabels": false,
+    "visibleBrokenImages": [],
+    "width": 390
+  },
+  {
+    "route": "/workshops",
+    "contentWidth": 375,
+    "h1": 1,
+    "heading": "Learn paper by making it.",
+    "mailtoLinks": 0,
+    "unwantedLabels": false,
+    "visibleBrokenImages": [],
+    "width": 390
+  },
+  {
+    "route": "/about",
+    "contentWidth": 375,
+    "h1": 1,
+    "heading": "A studio built around shared growth.",
+    "mailtoLinks": 0,
+    "unwantedLabels": false,
+    "visibleBrokenImages": [],
+    "width": 390
+  },
+  {
+    "route": "/contact",
+    "contentWidth": 375,
+    "h1": 1,
+    "heading": "Something in mind?",
+    "mailtoLinks": 0,
+    "unwantedLabels": false,
+    "visibleBrokenImages": [],
+    "width": 390
+  },
+  {
+    "route": "/",
+    "contentWidth": 753,
+    "h1": 1,
+    "heading": "A new life.In every fibre.",
+    "mailtoLinks": 0,
+    "unwantedLabels": false,
+    "visibleBrokenImages": [],
+    "width": 768
+  },
+  {
+    "route": "/shop",
+    "contentWidth": 753,
+    "h1": 1,
+    "heading": "Paper for the desk, the home and the occasion.",
+    "mailtoLinks": 0,
+    "unwantedLabels": false,
+    "visibleBrokenImages": [],
+    "width": 768
+  },
+  {
+    "route": "/paper",
+    "contentWidth": 753,
+    "h1": 1,
+    "heading": "The character is in the fibre.",
+    "mailtoLinks": 0,
+    "unwantedLabels": false,
+    "visibleBrokenImages": [],
+    "width": 768
+  },
+  {
+    "route": "/workshops",
+    "contentWidth": 753,
+    "h1": 1,
+    "heading": "Learn paper by making it.",
+    "mailtoLinks": 0,
+    "unwantedLabels": false,
+    "visibleBrokenImages": [],
+    "width": 768
+  },
+  {
+    "route": "/about",
+    "contentWidth": 753,
+    "h1": 1,
+    "heading": "A studio built around shared growth.",
+    "mailtoLinks": 0,
+    "unwantedLabels": false,
+    "visibleBrokenImages": [],
+    "width": 768
+  },
+  {
+    "route": "/contact",
+    "contentWidth": 753,
+    "h1": 1,
+    "heading": "Something in mind?",
+    "mailtoLinks": 0,
+    "unwantedLabels": false,
+    "visibleBrokenImages": [],
+    "width": 768
+  },
+  {
+    "route": "/",
+    "contentWidth": 1425,
+    "h1": 1,
+    "heading": "A new life.In every fibre.",
+    "mailtoLinks": 0,
+    "unwantedLabels": false,
+    "visibleBrokenImages": [],
+    "width": 1440
+  },
+  {
+    "route": "/shop",
+    "contentWidth": 1425,
+    "h1": 1,
+    "heading": "Paper for the desk, the home and the occasion.",
+    "mailtoLinks": 0,
+    "unwantedLabels": false,
+    "visibleBrokenImages": [],
+    "width": 1440
+  },
+  {
+    "route": "/paper",
+    "contentWidth": 1425,
+    "h1": 1,
+    "heading": "The character is in the fibre.",
+    "mailtoLinks": 0,
+    "unwantedLabels": false,
+    "visibleBrokenImages": [],
+    "width": 1440
+  },
+  {
+    "route": "/workshops",
+    "contentWidth": 1425,
+    "h1": 1,
+    "heading": "Learn paper by making it.",
+    "mailtoLinks": 0,
+    "unwantedLabels": false,
+    "visibleBrokenImages": [],
+    "width": 1440
+  },
+  {
+    "route": "/about",
+    "contentWidth": 1425,
+    "h1": 1,
+    "heading": "A studio built around shared growth.",
+    "mailtoLinks": 0,
+    "unwantedLabels": false,
+    "visibleBrokenImages": [],
+    "width": 1440
+  },
+  {
+    "route": "/contact",
+    "contentWidth": 1425,
+    "h1": 1,
+    "heading": "Something in mind?",
+    "mailtoLinks": 0,
+    "unwantedLabels": false,
+    "visibleBrokenImages": [],
+    "width": 1440
+  }
+]

@@ -1,68 +1,51 @@
 "use client";
-
 import Link from "next/link";
 import { useEffect, useState, type ReactNode } from "react";
-import { AnimatePresence, motion } from "motion/react";
-
-type Slide = { photo: ReactNode; eyebrow: string; title: string; cta: { href: string; label: string } };
-
-const ease = [0.22, 0.61, 0.24, 1] as const;
-
-/** Full-bleed crossfading hero with a slow zoom on each photo (after Jaipur Rugs). */
-export default function HeroSlider({ slides, interval = 6000 }: { slides: Slide[]; interval?: number }) {
-  const [i, setI] = useState(0);
-
+import { useReducedMotion } from "motion/react";
+type Slide = { photo: ReactNode; eyebrow: string };
+/** Slow image crossfades keep the headline steady; interaction pauses the timer. */
+export default function HeroSlider({ slides }: { slides: Slide[] }) {
+  const [active, setActive] = useState(0);
+  const [hovered, setHovered] = useState(false);
+  const [focused, setFocused] = useState(false);
+  const [visible, setVisible] = useState(true);
+  const reducedMotion = useReducedMotion();
   useEffect(() => {
-    const t = setTimeout(() => setI((i + 1) % slides.length), interval);
-    return () => clearTimeout(t);
-  }, [i, interval, slides.length]);
-
-  const s = slides[i];
+    const onVisibility = () => setVisible(!document.hidden);
+    onVisibility();
+    document.addEventListener("visibilitychange", onVisibility);
+    return () => document.removeEventListener("visibilitychange", onVisibility);
+  }, []);
+  useEffect(() => {
+    if (hovered || focused || !visible || reducedMotion || slides.length < 2) return;
+    const timer = setTimeout(() => setActive((value) => (value + 1) % slides.length), 7000);
+    return () => clearTimeout(timer);
+  }, [active, hovered, focused, visible, reducedMotion, slides.length]);
   return (
-    <section className="hero" aria-roledescription="carousel" aria-label="Highlights">
-      <h1 className="sr-only">Aditi Paperie, tree-free handmade paper from Kanha</h1>
-      <AnimatePresence initial={false}>
-        <motion.div
-          key={i}
-          className="slide"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 1.2, ease }}
-        >
-          <motion.div
-            style={{ position: "absolute", inset: 0 }}
-            initial={{ scale: 1.08 }}
-            animate={{ scale: 1 }}
-            transition={{ duration: interval / 1000 + 1.5, ease: "linear" }}
-          >
-            {s.photo}
-          </motion.div>
-        </motion.div>
-      </AnimatePresence>
-
-      <div className="hero-copy">
-        <div className="wrap">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 18 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.7, ease }}
-            >
-              <span className="label">{s.eyebrow}</span>
-              <p className="hero-title">{s.title}</p>
-              <Link href={s.cta.href} className="btn light">{s.cta.label}</Link>
-            </motion.div>
-          </AnimatePresence>
-        </div>
-      </div>
-
-      <div className="hero-dots">
-        {slides.map((_, k) => (
-          <button key={k} aria-label={`Show slide ${k + 1}`} aria-current={k === i} onClick={() => setI(k)} />
+    <section className="hero atelier-hero" aria-label="Aditi Paperie introduction" onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)} onFocusCapture={() => setFocused(true)} onBlurCapture={(event) => { if (!event.currentTarget.contains(event.relatedTarget)) setFocused(false); }}>
+      <div className="hero-images">
+        {slides.map((slide, index) => (
+          <div key={slide.eyebrow} className={`slide ${active === index ? "is-active" : ""}`} aria-hidden={index !== active}>{slide.photo}</div>
         ))}
+      </div>
+      <div className="hero-copy"><div className="wrap">
+        <span className="label">A handmade paper studio · Kanha, India</span>
+        <h1 className="hero-title">A new life.<br />In every fibre.</h1>
+        <p className="hero-description">Tree-free paper. Thoughtful objects.<br />A craft worth passing on.</p>
+        <div className="hero-actions">
+          <Link href="/shop" className="btn light">Explore the collection</Link>
+          <Link href="/workshops" className="hero-link">Experience the craft <span aria-hidden="true">↗</span></Link>
+        </div>
+      </div></div>
+      <div className="hero-bottom wrap">
+        <p className="hero-note">From discarded fibres.<br />To something worth keeping.</p>
+        <div className="hero-controls" role="group" aria-label="Choose a hero photograph">
+          {slides.map((slide, index) => (
+            <button key={slide.eyebrow} type="button" aria-pressed={index === active} aria-label={`Show ${slide.eyebrow.toLowerCase()}`} onClick={() => setActive(index)}>
+              <span className="hero-control-number">0{index + 1}</span><span>{slide.eyebrow}</span>
+            </button>
+          ))}
+        </div>
       </div>
     </section>
   );
