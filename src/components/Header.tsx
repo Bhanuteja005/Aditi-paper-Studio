@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
-import { motion, useReducedMotion } from "motion/react";
 import { nav, site } from "@/content/site";
 import { getLenis } from "./SmoothScroll";
 
@@ -16,7 +15,6 @@ export default function Header() {
   const menu = useRef<HTMLDivElement>(null);
   const headerBar = useRef<HTMLDivElement>(null);
   const restoreFocus = useRef(true);
-  const reducedMotion = useReducedMotion();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10);
@@ -129,7 +127,7 @@ export default function Header() {
       </div>
 
       {open && (
-        <motion.div
+        <div
           ref={menu}
           id="mobile-navigation"
           className="mobile-menu"
@@ -137,18 +135,21 @@ export default function Header() {
           aria-modal="true"
           aria-label="Navigation menu"
           data-lenis-prevent
-          initial={reducedMotion ? false : { opacity: 0, y: -12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: reducedMotion ? 0 : 0.25 }}
         >
-          <button className="mobile-menu-close" type="button" onClick={() => { restoreFocus.current = true; setOpenAt(null); }}>Close menu <span aria-hidden="true">×</span></button>
+          <div className="mobile-menu-top">
+            <Link href="/" className="brand" aria-label={`${site.name} home`} onClick={closeForNavigation}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/brand/logo-full.svg" alt={site.name} width={122} height={46} />
+            </Link>
+            <button className="mobile-menu-close" type="button" onClick={() => { restoreFocus.current = true; setOpenAt(null); }}>Close menu <span aria-hidden="true">×</span></button>
+          </div>
           <nav className="mobile-nav" aria-label="Mobile">
             {[{ href: "/", label: "Home" }, ...nav].map((item) => (
               <Link key={item.href} href={item.href} aria-current={pathname === item.href ? "page" : undefined} onClick={closeForNavigation}>{item.label}</Link>
             ))}
             <Link href="/workshops" className="btn gold" onClick={closeForNavigation}>Explore workshops</Link>
           </nav>
-        </motion.div>
+        </div>
       )}
     </header>
   );
