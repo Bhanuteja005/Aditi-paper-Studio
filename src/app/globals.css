@@ -325,8 +325,11 @@ h1,h2 { text-wrap:balance; }
 .hero-bottom { position:absolute; z-index:3; bottom:38px; left:50%; transform:translateX(-50%); display:flex; justify-content:space-between; align-items:end; gap:30px; }
 .hero-note { font-size:12px; line-height:1.6; margin:0; color:#f3eadd; }
 .hero-controls { display:flex; gap:24px; }
-.hero-controls button { min-height:48px; width:125px; text-align:left; font-size:11px; padding:10px 0; border-top:1px solid rgba(255,255,255,.45); color:#eee; }
-.hero-controls button[aria-pressed="true"] { border-top:2px solid #fff; color:#fff; }
+.hero-controls button { position:relative; min-height:48px; width:125px; text-align:left; font-size:11px; padding:10px 0; border-top:2px solid rgba(255,255,255,.35); color:#eee; }
+.hero-controls button[aria-pressed="true"] { color:#fff; }
+.hero-control-progress { position:absolute; top:-2px; left:0; width:100%; height:2px; background:#fff; transform-origin:left; pointer-events:none; }
+.hero-control-progress[data-autoplay="true"] { animation-name:hero-slide-progress; animation-timing-function:linear; animation-fill-mode:both; }
+@keyframes hero-slide-progress { from { transform:scaleX(0); } to { transform:scaleX(1); } }
 .hero-control-number { display:block; font-size:10px; margin-bottom:5px; opacity:.75; }
 .hero-controls button:focus-visible,.hero-link:focus-visible { outline-color:#fff; }
 .hero-image-note { position:absolute; z-index:3; bottom:8px; right:var(--gutter); font-size:9px; letter-spacing:.05em; color:#eee; }
