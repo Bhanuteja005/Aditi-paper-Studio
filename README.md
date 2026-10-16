@@ -1,36 +1,36 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Aditi Paperie — website
 
-## Getting Started
+Website for **Aditi Paperie**, a tree-free, chemical-free, archival handmade paper studio and social enterprise at
+Kanha Shanti Vanam, Hyderabad.
 
-First, run the development server:
+Built with Next.js 16 (App Router, TypeScript), plain CSS, [Lenis](https://github.com/darkroomengineering/lenis)
+for smooth scrolling and [Motion](https://motion.dev) for the hero and menu transitions. One typeface (Jost) and
+the logo palette: paper `#FAF8F3`, ink `#1A1916`, mustard gold `#C8962E`.
+
+## Run
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev      # http://localhost:3000
+npm run build    # production build (all pages are static)
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Where things live
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+| Path | What |
+|---|---|
+| `src/app/` | Pages: Home, Shop, Our Paper, Workshops, About, Contact |
+| `src/components/` | Header, Footer, HeroSlider, Photo, ShopGrid, ContactForm, PageHead |
+| `src/content/site.ts` | **All copy** — products, papers, workshops, FAQs, contact details |
+| `src/content/images.ts` | Image slot → photo map (v1 uses free Unsplash photos) |
+| `public/brand/` | Logo SVGs (traced from `brief/logo.jpeg`) |
+| `public/img/` | Drop final images here as `<slot>.jpg` — they replace the Unsplash photos automatically |
+| `docs/IMAGE_PROMPTS.md` | ChatGPT prompts for every image slot |
+| `docs/PROJECT_CONTEXT.md` | Brief, decisions and progress |
+| `brief/` | Client inputs: interview audio, transcripts, logo and palette photos |
+| `scripts/transcribe.py` | Whisper transcription / translation of the interview |
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Before launch (needs the client)
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Search the code for `TODO` — studio address, email, phone, hours, prices, Instagram handle, newsletter and
+contact-form backend (the form currently opens the visitor's email app), real photos, and the vector logo file.
